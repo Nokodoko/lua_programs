@@ -1,4 +1,5 @@
-Password Manager (written in lua):\n
+Password Manager (written in lua):
+
     1. Dependencies:
         1. rofi
         2. VictorMono font:
