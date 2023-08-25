@@ -1,7 +1,4 @@
-Here are lua programs that I've written that I can share that don't dox.
-These programs will be ports, or new ideas, from my bash scripts. 
-
-1. Password Manager:
+Password Manager (written in lua):
     1. Dependencies:
         1. rofi
         2. VictorMono font:
