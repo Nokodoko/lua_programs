@@ -1,3 +1,10 @@
+Here are ports of scripts I've written into lua.
+
+1. Touchpad enabled/disabled - for xorg with use of xinit. When/if ever I make the switch to wayland I'll configure with libinput.
+2. helpers, where I store a module with commonly used methods throughout these scripts/programs.
+3. spellmaker - to quickly make/port a script
+
+
 Password Manager (written in lua):
 
     1. Dependencies:
