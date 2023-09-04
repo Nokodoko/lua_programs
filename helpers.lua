@@ -29,4 +29,13 @@ end
 
 M.dmenu = 'echo "  " | dmenu -m 0 -fn VictorMono:size=17 -nf cyan -nb black -nf cyan -sb black'
 
+
+M.check = function (status_code, message)
+    if status_code == 0 then
+       os.execute('notify-send -u normal "'..message..'"')
+    elseif status_code == 1 then
+       os.execute('notify-send -u critical "'..message'"')
+    end
+end
+
 return M
