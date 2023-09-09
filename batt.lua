@@ -5,23 +5,30 @@ if not h_ok then
     return
 end
 
-local t = {}
+while true do
+    local t = {}
 
-local battery = io.popen('acpi', 'r')
-    if not battery then
-        h.check(1, "Could not run the acpi command")
-    else
-    local output = battery:read("*all")
-    local percentage = output:match( "Discharging, (%d+)" )
-    percentage = tonumber(percentage)
-        if percentage then
-            table.insert(t, percentage)
-       end
-    battery:close()
-        if percentage == nil then
-            h.check(1, "Could not populate table with Discharge value ")
-        elseif percentage < 70 then
-            h.check(1, "Charge Me!!")
-        end
-    return t
+    local battery = io.popen('acpi', 'r')
+        if not battery then
+            h.check(1, "Could not run the acpi command")
+        else
+        local output = battery:read("*all")
+        local discharge = output:match( "Discharging, (%d+)" )
+        local charge = output:match( "Charging, (%d+)" )
+        discharge = tonumber(discharge)
+        charge = tonumber(charge)
+            if discharge then
+                table.insert(t, discharge)
+            elseif charge then
+                os.exit(0, true)
+           end
+        battery:close()
+            if discharge == nil then
+                h.check(1, "Could not populate table with Discharge value ")
+            elseif discharge < 15 then
+                h.check(1, "Charge Me!!")
+            end
+        return t
+    end
 end
+
