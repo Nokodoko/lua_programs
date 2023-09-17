@@ -7,7 +7,7 @@ end
 M.Loop = function (tbl)
     local result = ""
     for _, v in ipairs(tbl) do
-    result = result ..v.. "\n"
+        result = result ..v.. "\n"
     end
     return result
 end
